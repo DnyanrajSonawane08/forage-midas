@@ -15,14 +15,8 @@ echo ""
 read -p "Enter Java version (e.g. 11, 17, 21): " VERSION
 PKG_NAME="openjdk-${VERSION}-jdk"
 
-# --------------------------------------------
-# Check if requested version exists in apt
-# --------------------------------------------
-if ! apt-cache policy "$PKG_NAME" | grep -q "Candidate:"; then
-    echo -e "${RED}Java version $VERSION is not available.${RESET}"
-    echo -e "${YELLOW}Please enter a valid version installed in your system or available in apt.${RESET}"
-    exit 1
-fi
+
+echo $PKG_NAME
 
 # --------------------------------------------
 # Detect previous JDK version
